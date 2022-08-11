@@ -1,0 +1,33 @@
+<!-- home.html -->
+{% extends "surveys/base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Available Surveys</h3>
+            </div>
+                
+            <div class="list-group">
+                {% for survey in surveys %}
+                <li class="list-group-item">
+                    <strong>{{survey.title}}</strong>
+                    <span class="pull-right">
+
+                        <a href={% url 'add_questions' survey.id %} class="btn btn-info btn-xs">add question</a> &nbsp;    
+                        <a href={% url 'vote' survey.id %} class="btn btn-info btn-xs">Vote</a> &nbsp; 
+
+                </span>
+                </li>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

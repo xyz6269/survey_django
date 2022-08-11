@@ -1,0 +1,52 @@
+{% extends "surveys/base.html" %}
+
+{% block title %}Answer the survey{% endblock %}
+
+{% block main %}
+<div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>{{ survey.title }}</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <hr />
+
+            <form action ={% url 'vote' survey.id %}  method="POST">
+                {% csrf_token %}
+            <div class="row">
+                {% for choice in survey.question_set.all %}
+                {{ choice.prompt }}
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="choice" value="option1">
+                            {{ choice.option_one }}
+                        </label> &nbsp;
+                        <label>
+                            <input type="radio" name="choice" value="option2">
+                            {{ choice.option_two }}
+                        </label> &nbsp;
+                        <label>
+                            <input type="radio" name="choice" value="option3">
+                            {{ choice.option_three }}
+                        </label> &nbsp;
+                       
+                    </div>
+                </div>
+            </div> 
+                {% endfor %}
+
+                <hr />
+
+                <button type="submit" class="btn btn-info">
+                    Submit
+                </button>
+                <a href={% url "home"%}>Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
