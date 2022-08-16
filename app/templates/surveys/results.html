@@ -1,0 +1,40 @@
+{% extends "surveys/base.html" %}
+
+{% block title %}Survey Results{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{survey.title}}</h3>
+            </div>
+                
+            <div class="list-group">
+                {% for q in r %}
+
+                <li class="list-group-item">
+                   
+                    <strong>{{q.question}}</strong>
+                   
+                        <ul class="list-group">
+                            <li class="list-group-item">{{ q.option1 }} &mdash; <strong>{{ q.option_one_count }}%</strong></li>
+                            <li class="list-group-item">{{ q.option2 }} &mdash; <strong>{{ q.option_two_count }}%</strong></li>
+                            <li class="list-group-item">{{ q.option3 }} &mdash; <strong>{{ q.option_three_count }}%</strong></li>
+                        </ul>
+                
+                </li>
+                {% empty %}
+                
+                <li class="list-group-item">
+                   
+                    no result to display
+                
+                </li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

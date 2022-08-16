@@ -15,7 +15,8 @@
                 {%csrf_token%}
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="container">
+                            {{question_form.prompt.label}}
                             {{question_form.prompt}}
                             <!--div class="form-group">
                                 <label for="">Enter the questin prompt</label>
@@ -26,6 +27,7 @@
 
                     <div class="row">
                         <div class="col-lg-4">
+                            {{question_form.option_one.label}}
                             {{question_form.option_one}}
                             <!--div class="form-group">
                                 <label for="option1">Option 1</label>
@@ -33,6 +35,7 @@
                             </!--div-->
                         </div>
                         <div class="col-lg-4">
+                            {{question_form.option_two.label}}
                             {{question_form.option_two}}
                             <!--div class="form-group">
                                 <label for="option2">Option 2</label>
@@ -40,6 +43,7 @@
                             </!--div-->
                         </div>
                         <div class="col-lg-4">
+                            {{question_form.option_three.label}}
                             {{question_form.option_three}}
                             <!--div-- class="form-group">
                                 <label for="option3">Option 3</label>

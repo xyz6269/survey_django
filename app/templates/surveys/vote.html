@@ -22,22 +22,29 @@
                 <div class="form-group">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="choice" value="option1">
+                        <input type="radio" name={{choice.pk}} value="option1">
                             {{ choice.option_one }}
                         </label> &nbsp;
                         <label>
-                            <input type="radio" name="choice" value="option2">
+                            <input type="radio" name={{choice.pk}} value="option2">
                             {{ choice.option_two }}
                         </label> &nbsp;
                         <label>
-                            <input type="radio" name="choice" value="option3">
+                            <input type="radio" name={{choice.pk}} value="option3">
                             {{ choice.option_three }}
                         </label> &nbsp;
                        
                     </div>
                 </div>
-            </div> 
+                {% empty %}
+                <li class="list-group-item">
+                   
+                    nothing to vote for
+                
+                </li>
                 {% endfor %}
+            </div> 
+               
 
                 <hr />
 
